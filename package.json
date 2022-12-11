@@ -1,0 +1,18 @@
+{
+    "name": "telegrafopenai",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "dotenv": "^16.0.3",
+      "openai": "^3.1.0",
+      "telegraf": "^4.11.2"
+    }
+  }
+  

@@ -18,7 +18,7 @@ bot.on('message', async ctx => {
         else
             await ctx.sendMessage('The image could not be generated')
     } catch(err) {
-        console.log(err)
+        await ctx.sendMessage('The bot is broken')
     }
 })
 

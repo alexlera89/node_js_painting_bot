@@ -14,12 +14,16 @@ bot.on('message', async ctx => {
     try {
         url = await generateImage(ctx.message.text)
         if (url !== 'The image could not be generated')
-            ctx.replyWithPhoto(url)
+            await ctx.replyWithPhoto(url)
         else
-            ctx.sendMessage('The image could not be generated')
+            await ctx.sendMessage('The image could not be generated')
     } catch(err) {
         console.log(err)
     }
 })
 
 bot.launch()
+
+// Enable graceful stop
+process.once('SIGINT', () => bot.stop('SIGINT'));
+process.once('SIGTERM', () => bot.stop('SIGTERM'));

@@ -11,11 +11,15 @@ bot.command('start', (ctx) => ctx.reply('Welcome honey! I\'m NodeJS bot' +
     ' I will show you image. Please, don\'t write about porno pictures.'))
 
 bot.on('message', async ctx => {
-    url = await generateImage(ctx.message.text)
-    if (url !== 'The image could not be generated')
-        ctx.replyWithPhoto(url)
-    else
-        ctx.sendMessage('The image could not be generated')
+    try {
+        url = await generateImage(ctx.message.text)
+        if (url !== 'The image could not be generated')
+            ctx.replyWithPhoto(url)
+        else
+            ctx.sendMessage('The image could not be generated')
+    } catch(err) {
+        console.log(err)
+    }
 })
 
 bot.launch()
